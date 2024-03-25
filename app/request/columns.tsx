@@ -23,8 +23,6 @@ import {
   rejectUpgradeUsers,
 } from "../api/upgradeUser//route";
 
-const router = useRouter();
-
 export const columns: ColumnDef<SafeUpgradeRequest>[] = [
   {
     accessorKey: "id",
@@ -56,7 +54,6 @@ export const columns: ColumnDef<SafeUpgradeRequest>[] = [
       const handleAcceptClicked = async () => {
         const response = await acceptUpgradeUsers(users?._id);
         if (response?.user) {
-          router.refresh();
           toast.success("User role upgraded sucessfully!");
         } else {
           toast.error("Something went wrong!");
@@ -66,7 +63,6 @@ export const columns: ColumnDef<SafeUpgradeRequest>[] = [
       const handleRejectClicked = async () => {
         const response = await rejectUpgradeUsers(users?._id);
         if (response) {
-          router.refresh();
           toast.success(response.message);
         } else {
           toast.error("Something went wrong!");
