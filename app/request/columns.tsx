@@ -23,6 +23,8 @@ import {
   rejectUpgradeUsers,
 } from "../api/upgradeUser//route";
 
+const router = useRouter();
+
 export const columns: ColumnDef<SafeUpgradeRequest>[] = [
   {
     accessorKey: "id",
@@ -51,7 +53,6 @@ export const columns: ColumnDef<SafeUpgradeRequest>[] = [
     header: "Actions",
     cell: ({ row }) => {
       const users = row.original;
-      const router = useRouter();
       const handleAcceptClicked = async () => {
         const response = await acceptUpgradeUsers(users?._id);
         if (response?.user) {
