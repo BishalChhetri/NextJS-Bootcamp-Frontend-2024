@@ -44,7 +44,13 @@ const BootcampPage = async ({ params }: { params: IParams }) => {
       <Container>
         <div className="pt-15 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
           {bootcamps?.map((bootcamp: SafeBootcamp) => {
-            return <BootcampCard data={bootcamp} currentUser={currentUser} />;
+            return (
+              <BootcampCard
+                key={bootcamp._id}
+                data={bootcamp}
+                currentUser={currentUser}
+              />
+            );
           })}
         </div>
       </Container>

@@ -14,16 +14,16 @@ interface RequestClientProps {
 }
 
 const RequestClient: React.FC<RequestClientProps> = ({ data, currentUser }) => {
+  const router = useRouter();
+  useEffect(() => {
+    router.refresh();
+  }, []);
+
   if (!currentUser) {
     return (
       <EmptyState title="Unauthorized" subtitle="Please login" showReset />
     );
   }
-
-  const router = useRouter();
-  useEffect(() => {
-    router.refresh();
-  }, []);
 
   if (data?.data && data?.data.length === 0) {
     return (
