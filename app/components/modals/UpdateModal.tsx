@@ -61,7 +61,7 @@ const UpdateModal = () => {
         updateModal.onClose();
       }
     } catch (error: any) {
-      toast.error("Incorrect Password!!");
+      toast.error("Incorrect Password!");
     } finally {
       setIsLoading(false);
     }

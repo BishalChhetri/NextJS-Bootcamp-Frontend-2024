@@ -42,7 +42,7 @@ export const authOptions: AuthOptions = {
           if (response.status !== 200) {
             throw new Error(response.statusText + "! Invalid credentials");
           }
-
+          
           return response?.data?.user;
         } catch (error: any) {
           throw new Error(error.response.statusText || "Invalid credentials");
@@ -69,7 +69,16 @@ export const authOptions: AuthOptions = {
             }
           }
         }
-        return true;
+        const response = await axios.post(
+          `${backendBaseUrl}/api/v1/auth/login`,
+          { ...user, googleSignIn: "True" }
+        );
+
+        if (response.status !== 200) {
+          throw new Error(response.statusText + "! Invalid credentials");
+        }
+
+        return response?.data?.user;
       } catch (error) {
         console.error("Error checking user:", error);
         return false;

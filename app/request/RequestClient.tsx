@@ -6,7 +6,7 @@ import { DataTable } from "@/components/data-table";
 import { columns } from "./columns";
 import EmptyState from "../components/EmptyState";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 interface RequestClientProps {
   data: any;

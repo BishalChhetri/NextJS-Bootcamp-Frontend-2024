@@ -16,7 +16,7 @@ const updateUser = async ({
 }: updateUserProps): Promise<SafeUser | undefined> => {
   try {
     const token = await getSessionToken();
-
+    
     if (!token) {
       throw new Error("Token not available!");
     }
