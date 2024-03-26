@@ -10,7 +10,7 @@ import { SafeReview, SafeUser } from "@/app/types";
 import { formatDate } from "@/app/actions/formatDate";
 import Avatar from "../Avatar";
 import ConfirmationModal from "@/app/components/modals/confirmationModal";
-import { deleteOneReview } from "@/app/api/review/route";
+import deleteOneReview from "@/app/api/review/deleteOneReview";
 
 interface ReviewProps {
   data: SafeReview;

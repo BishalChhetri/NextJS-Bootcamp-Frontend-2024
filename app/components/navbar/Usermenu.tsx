@@ -12,10 +12,11 @@ import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
 import useAddBootCampModal from "@/app/hooks/useAddBootcampModal";
 import ConfirmationModal from "@/app/components/modals/confirmationModal";
-import { getUpgradeStatus, upgradeUser } from "@/app/api/upgradeUser/route";
 import { toast } from "react-hot-toast";
 import getBootcampIdByUser from "@/app/actions/getBootcampByUserId";
 import useAddCourseModal from "@/app/hooks/useAddCourseModal";
+import getUpgradeStatus from "@/app/api/upgradeUser/getUpgradeStatus";
+import upgradeUser from "@/app/api/upgradeUser/upgradeUser";
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;

@@ -1,5 +1,5 @@
 import getCurrentUser from "../actions/getCurrentUser";
-import { getReqUpgradeUsers } from "../api/upgradeUser/route";
+import getReqUpgradeUsers from "../api/upgradeUser/getReqUpgradeUsers";
 import RequestClient from "./RequestClient";
 
 const RequestPage = async () => {

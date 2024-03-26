@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 
 import getCurrentUser from "./actions/getCurrentUser";
-import { getUpgradeStatus } from "./api/upgradeUser//route";
+import getUpgradeStatus from "./api/upgradeUser/getUpgradeStatus";
 import Footer from "./components/footer/Footer";
 import AddBootcampModal from "./components/modals/AddBootcampModal";
 import AddCourseModal from "./components/modals/AddCourseModal";

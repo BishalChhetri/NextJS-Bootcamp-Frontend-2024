@@ -9,9 +9,9 @@ import Heading from "../Heading";
 import Input from "../inputs/Input";
 import { toast } from "react-hot-toast";
 import ImageUpload from "../inputs/ImageUpload";
-import { createCourse } from "@/app/api/course/route";
 import useAddCourseModal from "@/app/hooks/useAddCourseModal";
 import SingleSelect from "../inputs/SingleSelect";
+import createCourse from "@/app/api/course/createCourse";
 
 enum STEPS {
   BASIC = 0,

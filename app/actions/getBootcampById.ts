@@ -1,4 +1,4 @@
-import { getOneBootcamp } from "../api/bootcamp/route";
+import getOneBootcamp from "../api/bootcamp/getOneBootcamp";
 
 interface IParams {
   bootcampId?: string;

@@ -9,7 +9,7 @@ import { toast } from "react-hot-toast";
 import { SafeCourse, SafeUser } from "@/app/types";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import ConfirmationModal from "@/app/components/modals/confirmationModal";
-import { deleteOneCourse } from "@/app/api/course/route";
+import deleteOneCourse from "@/app/api/course/deleteOneCourse";
 
 interface CourseProps {
   data: SafeCourse | null;

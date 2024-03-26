@@ -9,8 +9,8 @@ import { useRouter } from "next/navigation";
 import Heading from "@/app/components/Heading";
 import { SafeUser } from "@/app/types";
 import ConfirmationModal from "@/app/components/modals/confirmationModal";
-import { deleteOneBootcamp } from "@/app/api/bootcamp/route";
-import { deleteOneCourse } from "@/app/api/course/route";
+import deleteOneBootcamp from "@/app/api/bootcamp/deleteOneBootcamp";
+import deleteOneCourse from "@/app/api/course/deleteOneCourse";
 
 interface BootcampHeadProps {
   id: string;

@@ -3,7 +3,6 @@
 import { ColumnDef } from "@tanstack/react-table";
 
 import { toast } from "react-hot-toast";
-import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { MoreHorizontal } from "lucide-react";
 import {
@@ -18,10 +17,8 @@ import { TiTick } from "react-icons/ti";
 import { ImCross } from "react-icons/im";
 
 import { SafeUpgradeRequest } from "../types";
-import {
-  acceptUpgradeUsers,
-  rejectUpgradeUsers,
-} from "../api/upgradeUser//route";
+import acceptUpgradeUsers from "../api/upgradeUser/acceptUpgradeUsers";
+import rejectUpgradeUsers from "../api/upgradeUser/rejectUpgradeUsers";
 
 export const columns: ColumnDef<SafeUpgradeRequest>[] = [
   {

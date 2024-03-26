@@ -1,5 +1,5 @@
 import getCurrentUser from "./actions/getCurrentUser";
-import { getAllBootcamp } from "./api/bootcamp/route";
+import getAllBootcamp from "./api/bootcamp/getAllbootcamp";
 import BootcampCard from "./components/bootcamps/BootcampCard";
 import Container from "./components/Container";
 import { SafeBootcamp } from "./types";

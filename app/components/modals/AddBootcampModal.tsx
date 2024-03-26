@@ -11,7 +11,7 @@ import Input from "../inputs/Input";
 import { toast } from "react-hot-toast";
 import ImageUpload from "../inputs/ImageUpload";
 import MultiSelect from "../inputs/MultiSelect";
-import { createBootcamp } from "@/app/api/bootcamp/route";
+import createBootcamp from "@/app/api/bootcamp/createBootcamp";
 
 enum STEPS {
   BASIC = 0,

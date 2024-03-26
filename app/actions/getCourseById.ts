@@ -1,4 +1,4 @@
-import { getOneCourse } from "../api/course/route";
+import getOneCourse from "../api/course/getOneCourse";
 
 interface IParams {
   courseId?: string;

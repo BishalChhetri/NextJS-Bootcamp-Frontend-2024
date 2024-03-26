@@ -1,4 +1,4 @@
-import { getReviews } from "../api/review/route";
+import getReviews from "../api/review/getReviews";
 
 interface IParams {
   bootcampId?: string;

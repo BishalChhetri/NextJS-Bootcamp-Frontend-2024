@@ -12,7 +12,7 @@ import Input from "../inputs/Input";
 import { toast } from "react-hot-toast";
 import Button from "../Button";
 import useLoginModal from "@/app/hooks/useLoginModal";
-import { registerUser } from "../../api/user/route";
+import registerUser from "@/app/api/user/registerUser";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();

@@ -10,7 +10,7 @@ import { toast } from "react-hot-toast";
 import { SafeBootcamp, SafeUser } from "@/app/types";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import ConfirmationModal from "@/app/components/modals/confirmationModal";
-import { deleteOneBootcamp } from "@/app/api/bootcamp/route";
+import deleteOneBootcamp from "@/app/api/bootcamp/deleteOneBootcamp";
 
 interface BootcampCardProps {
   data: SafeBootcamp | null;

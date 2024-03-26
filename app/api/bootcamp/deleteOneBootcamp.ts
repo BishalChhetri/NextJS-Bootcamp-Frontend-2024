@@ -1,9 +1,9 @@
-import axios from "axios";
 import { getSessionToken } from "@/app/actions/getSessionToken";
+import axios from "axios";
 
 const BackendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
-export const deleteOneReview = async (reviewId: string | undefined) => {
+const deleteOneBootcamp = async (bootcampId: string | undefined) => {
   try {
     const token = await getSessionToken();
 
@@ -12,7 +12,7 @@ export const deleteOneReview = async (reviewId: string | undefined) => {
     }
 
     const response = await axios.delete(
-      `${BackendUrl}/api/v1/reviews/${reviewId}`,
+      `${BackendUrl}/api/v1/bootcamps/${bootcampId}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -24,20 +24,12 @@ export const deleteOneReview = async (reviewId: string | undefined) => {
       return { data: response?.data?.text };
     }
   } catch (e: any) {
-    console.log(e.message);
-  }
-};
-
-export const getReviews = async (bootcampId: string | undefined) => {
-  try {
-    const response = await axios.get(
-      `${BackendUrl}/api/v1/reviews/bootcamp/${bootcampId}`
+    throw new Error(
+      JSON.parse(e.request.response).message ||
+        e.message ||
+        "Something went wrong!"
     );
-
-    if (response) {
-      return { data: response?.data?.data };
-    }
-  } catch (e: any) {
-    console.log(e.message);
   }
 };
+
+export default deleteOneBootcamp;

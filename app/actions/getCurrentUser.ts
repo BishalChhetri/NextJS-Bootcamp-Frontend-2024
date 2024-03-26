@@ -3,7 +3,7 @@
 import { getServerSession } from "next-auth/next";
 
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import { getActiveUser } from "../api/user/route";
+import getActiveUser from "../api/user/getActiveUser";
 
 export async function getSession() {
   return await getServerSession(authOptions);

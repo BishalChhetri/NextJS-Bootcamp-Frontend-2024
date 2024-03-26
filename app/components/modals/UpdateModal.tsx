@@ -2,16 +2,13 @@
 
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
 
-import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useUpdateModal from "@/app/hooks/useUpdateModal";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
 import { toast } from "react-hot-toast";
-import Button from "../Button";
-import { updateUser } from "@/app/api/user/route";
+import updateUser from "@/app/api/user/updateUser";
 
 const UpdateModal = () => {
   const updateModal = useUpdateModal();

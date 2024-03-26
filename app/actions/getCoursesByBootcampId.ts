@@ -1,4 +1,4 @@
-import { getCourses } from "../api/course/route";
+import getCourses from "../api/course/getCourses";
 
 interface IParams {
   bootcampId?: string;
