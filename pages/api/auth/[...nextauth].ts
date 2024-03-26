@@ -1,8 +1,8 @@
+import axios from "axios";
 import NextAuth from "next-auth";
 import { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
-import axios from "axios";
 
 const backendBaseUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
