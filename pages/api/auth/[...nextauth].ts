@@ -42,7 +42,7 @@ export const authOptions: AuthOptions = {
           if (response.status !== 200) {
             throw new Error(response.statusText + "! Invalid credentials");
           }
-          
+
           return response?.data?.user;
         } catch (error: any) {
           throw new Error(error.response.statusText || "Invalid credentials");
@@ -78,14 +78,25 @@ export const authOptions: AuthOptions = {
           throw new Error(response.statusText + "! Invalid credentials");
         }
 
-        return response?.data?.user;
+        return true;
       } catch (error) {
         console.error("Error checking user:", error);
         return false;
       }
     },
-    async jwt({ token, user, account }) {
-      return { ...token, ...user };
+    async jwt({ token, user, account, profile }) {
+      let response;
+      if (user && !token?.token) {
+        response = await axios.post(`${backendBaseUrl}/api/v1/auth/login`, {
+          ...user,
+          googleSignIn: "True",
+        });
+      }
+      if (response) {
+        return { ...token, ...user, token: response?.data?.user?.token };
+      } else {
+        return { ...token, ...user };
+      }
     },
     async session({ user, session, token }) {
       session.user = token as any;

@@ -17,7 +17,7 @@ export const createCourse = async ({
       throw new Error("Token not available!");
     }
     let response;
-
+    
     if (bootcampId) {
       response = await axios.post(
         `${BackendUrl}/api/v1/courses/${bootcampId}`,

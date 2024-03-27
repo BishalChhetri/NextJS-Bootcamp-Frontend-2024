@@ -123,7 +123,6 @@ const AddCourseModal = () => {
         addCourseModal.onClose();
       }
     } catch (e: any) {
-      console.log(e);
       toast.error(e.message || "Something went wrong.");
       setIsLoading(false);
     }

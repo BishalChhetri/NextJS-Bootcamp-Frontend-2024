@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 import useUpdateModal from "@/app/hooks/useUpdateModal";
@@ -9,9 +9,21 @@ import Heading from "../Heading";
 import Input from "../inputs/Input";
 import { toast } from "react-hot-toast";
 import updateUser from "@/app/api/user/updateUser";
+import getCurrentUser from "@/app/actions/getCurrentUser";
 
 const UpdateModal = () => {
   const updateModal = useUpdateModal();
+  const [isThirdPartySignIn, setIsThirdPartySignIn] = useState(false);
+
+  const fetchCurrentUser = async () => {
+    const currentUser = await getCurrentUser();
+    setIsThirdPartySignIn(currentUser?.isThirdPartySignIn || false);
+    console.log({ currentUser });
+  };
+
+  useEffect(() => {
+    fetchCurrentUser();
+  }, []);
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -36,7 +48,7 @@ const UpdateModal = () => {
       return;
     }
 
-    if (data.newPassword === data.password) {
+    if (!isThirdPartySignIn && data.newPassword === data.password) {
       toast.error("The current password and the new password match!");
       setIsLoading(false);
       return;
@@ -47,15 +59,25 @@ const UpdateModal = () => {
       setIsLoading(false);
       return;
     }
-    const userData = {
-      currentPassword: data.password,
-      newPassword: data.newPassword,
-    };
+
+    let userData;
+
+    if (!isThirdPartySignIn) {
+      userData = {
+        currentPassword: data.password,
+        newPassword: data.newPassword,
+      };
+    } else {
+      userData = {
+        isThirdPartySignIn: true,
+        newPassword: data.newPassword,
+      };
+    }
 
     try {
       const response = await updateUser({ data: userData });
-
       if (response) {
+        setIsThirdPartySignIn(response?.isThirdPartySignIn || false);
         toast.success("Success!");
         reset();
         updateModal.onClose();
@@ -70,15 +92,17 @@ const UpdateModal = () => {
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading title="Update Password" subtitle="Change user password!" />
-      <Input
-        id="password"
-        type="password"
-        label="Password"
-        disabled={isLoading}
-        register={register}
-        errors={errors}
-        required
-      />
+      {!isThirdPartySignIn && (
+        <Input
+          id="password"
+          type="password"
+          label="Password"
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+          required
+        />
+      )}
       <Input
         id="newPassword"
         type="password"

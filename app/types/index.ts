@@ -58,6 +58,7 @@ export type SafeUser = {
   image: string;
   createdAt?: Date;
   status?: string;
+  isThirdPartySignIn?: boolean;
 };
 
 export type SafeReview = {

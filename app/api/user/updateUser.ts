@@ -6,7 +6,8 @@ const BackendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 interface updateUserProps {
   data: {
-    currentPassword: String | null;
+    currentPassword?: String | null;
+    isThirdPartySignIn?: boolean | null;
     newPassword: String | null;
   };
 }
@@ -16,7 +17,7 @@ const updateUser = async ({
 }: updateUserProps): Promise<SafeUser | undefined> => {
   try {
     const token = await getSessionToken();
-    
+
     if (!token) {
       throw new Error("Token not available!");
     }
