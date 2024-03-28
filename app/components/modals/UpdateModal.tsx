@@ -18,7 +18,6 @@ const UpdateModal = () => {
   const fetchCurrentUser = async () => {
     const currentUser = await getCurrentUser();
     setIsThirdPartySignIn(currentUser?.isThirdPartySignIn || false);
-    console.log({ currentUser });
   };
 
   useEffect(() => {
