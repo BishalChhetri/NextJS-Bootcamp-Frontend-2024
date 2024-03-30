@@ -18,7 +18,7 @@ const getActiveUser = async ({
       return response?.data?.user;
     }
   } catch (e: any) {
-    console.log(e.message);
+    return;
   }
 };
 

@@ -40,7 +40,6 @@ export const createCourse = async ({
       return { data: response?.data?.course };
     }
   } catch (e: any) {
-    console.log(e);
     throw new Error(
       JSON.parse(e.request.response).message ||
         e.message ||

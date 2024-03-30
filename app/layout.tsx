@@ -6,6 +6,7 @@ import getUpgradeStatus from "./api/upgradeUser/getUpgradeStatus";
 import Footer from "./components/footer/Footer";
 import AddBootcampModal from "./components/modals/AddBootcampModal";
 import AddCourseModal from "./components/modals/AddCourseModal";
+import ForgotPasswordModal from "./components/modals/ForgotPasswordModal";
 import LoginModal from "./components/modals/LoginModal";
 import RegisterModal from "./components/modals/RegisterModal";
 import UpdateModal from "./components/modals/UpdateModal";
@@ -46,6 +47,7 @@ export default async function RootLayout({
         <UpdateModal />
         <AddBootcampModal />
         <AddCourseModal />
+        <ForgotPasswordModal />
         <Navbar currentUser={currentUser} />
         <div className="pb-20 pt-28">{children}</div>
         <Footer />

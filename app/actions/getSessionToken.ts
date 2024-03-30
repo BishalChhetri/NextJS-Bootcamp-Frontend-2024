@@ -15,7 +15,6 @@ export async function getSessionToken() {
     const token = session?.user?.token;
     return token;
   } catch (error: any) {
-    console.log(error);
     return null;
   }
 }

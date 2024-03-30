@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
+import useForgotPasswordModal from "@/app/hooks/useForgotPasswordModal";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
@@ -19,6 +20,7 @@ const LoginModal = () => {
 
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
+  const forgotPasswordModal = useForgotPasswordModal();
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -42,6 +44,7 @@ const LoginModal = () => {
 
       if (callback?.ok) {
         toast.success("Logged in");
+        router.push("/");
         router.refresh();
         reset();
         loginModal.onClose();
@@ -60,6 +63,12 @@ const LoginModal = () => {
     loginModal.onClose();
     registerModal.onOpen();
   }, [loginModal, registerModal]);
+
+  const toggleForgotPassword = useCallback(() => {
+    reset();
+    loginModal.onClose();
+    forgotPasswordModal.onOpen();
+  }, [loginModal, forgotPasswordModal]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -86,6 +95,12 @@ const LoginModal = () => {
 
   const footerContent = (
     <div className="flex flex-col gap-4 mt-3">
+      <div
+        className="flex justify-center cursor-pointer hover:opacity-80 transition"
+        onClick={toggleForgotPassword}
+      >
+        Forgot password?
+      </div>
       <hr />
       <Button
         outline

@@ -24,7 +24,7 @@ const deleteOneReview = async (reviewId: string | undefined) => {
       return { data: response?.data?.text };
     }
   } catch (e: any) {
-    console.log(e.message);
+    return null;
   }
 };
 

@@ -12,7 +12,7 @@ const getReviews = async (bootcampId: string | undefined) => {
       return { data: response?.data?.data };
     }
   } catch (e: any) {
-    console.log(e.message);
+    return null;
   }
 };
 
