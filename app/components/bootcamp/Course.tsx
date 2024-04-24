@@ -105,11 +105,13 @@ const Course: React.FC<CourseProps> = ({
         </div>
         <div className="font-semibold text-lg mt-2 flex">
           <span>{data?.title}</span>
-          <div>
-            <span className="text-sm ms-2 bg-black text-white rounded-lg px-1">
-              {data?.minimumSkill}
-            </span>
-          </div>
+          {data?.minimumSkill && (
+            <div>
+              <span className="text-sm ms-2 bg-black text-white rounded-lg px-1">
+                {data?.minimumSkill}
+              </span>
+            </div>
+          )}
         </div>
         <div className="font-light text-neutral-500 text-sm">
           {data?.description}
