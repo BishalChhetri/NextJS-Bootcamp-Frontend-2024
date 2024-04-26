@@ -17,7 +17,11 @@ const ErrorState: React.FC<ErrorStateProps> = ({ error }) => {
     <div className="h-[60vh] flex flex-col gap-2 justify-center items-center">
       <EmptyState
         title={"Uh oh!"}
-        subtitle={"Something went wrong!"}
+        subtitle={`
+          ${error} === "Error: Connection closed."
+            ? "Connection closed due to prolonged inactivity. Please manually hard refresh."
+            : "Something went wrong!"
+        `}
         showReset
       />
     </div>
