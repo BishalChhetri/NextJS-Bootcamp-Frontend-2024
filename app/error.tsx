@@ -18,7 +18,7 @@ const ErrorState: React.FC<ErrorStateProps> = ({ error }) => {
         title={"Uh oh!"}
         subtitle={`${
           error && error.message === "Connection closed."
-            ? "Connection closed due to prolonged inactivity. Please manually hard refresh."
+            ? "Connection closed! This application uses a free instance backend service, which can delay requests by 50 seconds or more if there is prolonged inactivity. Please manually hard refresh."
             : "Something went wrong!"
         }`}
         showReset
