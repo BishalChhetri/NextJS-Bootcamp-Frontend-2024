@@ -4,7 +4,7 @@ This project is the frontend for the Bootcamp application, built using Next.js a
 
 ## Introduction
 
-The Bootcamp Frontend provides the user interface for the Bootcamp application, allowing users to browse bootcamps, view courses, and sign in or sign up using Google authentication.
+The Bootcamp Frontend provides the user interface for the Bootcamp application, allowing users to browse bootcamps, view courses, and sign in or sign up using Google authentications.
 
 ## Features
 
